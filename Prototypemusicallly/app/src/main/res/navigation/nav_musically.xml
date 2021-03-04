@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_musically"
+    app:startDestination="@id/listeMusicFrag">
+
+    <fragment
+        android:id="@+id/listeMusicFrag"
+        android:name="com.dardev.prototypemusicallly.fragments.ListeMusicFrag"
+        android:label="fragment_liste_music"
+        tools:layout="@layout/fragment_liste_music" >
+        <action
+            android:id="@+id/action_listeMusicFrag_to_musicPlayerFrag"
+            app:destination="@id/musicPlayerFrag"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/musicPlayerFrag"
+        android:name="com.dardev.prototypemusicallly.fragments.MusicPlayerFrag"
+        android:label="fragment_music_player"
+        tools:layout="@layout/fragment_music_player" >
+        <action
+            android:id="@+id/action_musicPlayerFrag_to_listeMusicFrag"
+            app:destination="@id/listeMusicFrag"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <argument
+            android:name="music"
+            app:argType="com.dardev.prototypemusicallly.model.Music"
+            app:nullable="true" />
+    </fragment>
+</navigation>
